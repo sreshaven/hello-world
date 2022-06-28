@@ -19,7 +19,7 @@ pipeline{
         }
         stage('analysis'){
             withSonarQubeEnv('SonarQube'){
-                sh 'mvn -Psonar -Dsonar.sourceEncoding=UTF-8 org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+                sh 'mvn -Psonar -Dsonar.sourceEncoding=UTF-8 org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
             }
         }
     }
