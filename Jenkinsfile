@@ -22,6 +22,9 @@ pipeline{
                 withSonarQubeEnv('SonarQube'){
                     sh 'mvn -Psonar -Dsonar.sourceEncoding=UTF-8 org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
                 }
+                timeout(time: 1, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
             }
         }
     }
