@@ -17,5 +17,10 @@ pipeline{
                sh 'mvn install'
             }
         }
+        stage('analysis'){
+            withSonarQubeEnv('SonarQube'){
+                sh 'mvn -Psonar -Dsonar.sourceEncoding=UTF-8 org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+            }
+        }
     }
 }
